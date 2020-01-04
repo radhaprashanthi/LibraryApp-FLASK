@@ -1,2 +1,0 @@
-# LibraryApp-FLASK
-Library Database application to manage the library using a computerized system where we can record various transactions like issue of books, return of books, addition of new books, addition of new students, etc. Books and student maintenance modules are also included in this system which would keep track of the students using the library and also a detailed description about the books a library contains.
