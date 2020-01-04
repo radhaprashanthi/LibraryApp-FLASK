@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+div.column2Img {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/93/Gleeson_Library_-_University_of_San_Francisco_-_San_Francisco%2C_CA_-_DSC02652.JPG");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GLEESON LIBRARY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('admin_functions') }}" data-toggle="tooltip" title="Back to Admin functions">HOME</a></li>
+        <!--<li><a href="{{ url_for('register') }}" data-toggle="tooltip" title="Only for registered users!">REGISTER</a></li>-->
+      </ul>
+    </div>
+</div>
+</nav>
+
+    <div class="container">
+
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+
+      {% if session['logged_in'] %}
+      <p>You're logged in already!</p>
+      {% else %}
+    <div class="container">
+        <h3>Add Book</h3>
+        <p class="text-danger">
+        {%- for message in get_flashed_messages() %}
+         {{ message }}
+        {%- endfor %}</p>
+      <form action="/add_books" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token()  }}" />
+        <label>Title<label/>
+        <input type="title" name="title" placeholder="Enter book title..."><br/>
+        <label>Author<label/>
+        <input type="author" name="author" placeholder="Enter author name..."><br/>
+        <label>Category/Department<label/>
+        <input type="department" name="department" placeholder="Enter book category..."><br/>
+        <label>Copies</label>
+        <input type="copies" name="copies" placeholder="Enter total number of copies..."><br/><br/>
+        <input type="submit" value="Add">
+        <div>
+        {% endif %}
+    </div>
+</div>
+</body>
+ </html>
+
+

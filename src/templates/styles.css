@@ -1,0 +1,14 @@
+
+label {
+    width:200px;
+    clear:left;
+    text-align:left;
+    padding-right:10px;
+    line-height:25px;
+    float:left;
+}
+
+input {
+    height:25px;
+    
+}

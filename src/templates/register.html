@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GLEESON LIBRARY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('admin_functions') }}" data-toggle="tooltip" title="Back to Admin functions">HOME</a></li>
+        <!--<li><a href="{{ url_for('register') }}" data-toggle="tooltip" title="Only for registered users!">REGISTER</a></li>-->
+      </ul>
+    </div>
+</div>
+</nav>
+
+<div class="container">
+
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+
+
+    <div class="container">
+        <h3>User Registration</h3>
+      <form action="/register" method="POST">
+         <input type="hidden" name="csrf_token" value="{{ csrf_token()  }}" />
+        <label>FirstName<label/>
+        <input type="first_name" name="first_name" placeholder="Enter firstname..."><br/>
+        <label>LastName<label/>
+        <input type="last_name" name="last_name" placeholder="Enter lastname..."><br/>
+        <label>Password<label/>
+        <input type="password" name="password" placeholder="Enter password"><br/>
+        <label>Email<label/>
+        <input type="email" name="email" placeholder="Enter Email"><br/><br/>
+        <input type="submit" value="Register">
+        </form>
+        <div>
+</div>
+</body>
+ </html>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Readers list</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+</style>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GLEESON LIBRARY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('admin_functions') }}" data-toggle="tooltip" title="Back to Admin functions">HOME</a></li>
+        <!--<li><a href="{{ url_for('register') }}" data-toggle="tooltip" title="Only for registered users!">REGISTER</a></li>-->
+      </ul>
+    </div>
+
+</div>
+</nav>
+
+<div class="container">
+    <div class="container">
+        <h4>Readers</h4>
+        <!-- Search form -->
+        <form class="form-inline active-cyan-4" action="/show_readers" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token()  }}" />
+        <input type="search" name ="search_reader" placeholder="Search for reader" class="form-control form-control-sm mr-3 w-75" aria-label="Search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+        
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reader in readers %}
+            <tr>
+                <td><span class="glyphicon glyphicon-user"></span></td>                
+                <td >{{ reader.name }}</td>
+                <td><a href="{{ url_for('show_borrowed_books') }}" name = "email" data-toggle="tooltip" title="Click to see books borrowed">{{ reader.email }}</a></td>
+                <td>{{ reader.department }}</td>
+            </tr>
+            {% endfor %} 
+            </tbody>
+        </table>
+    </div>
+
+</div>
+    </div>
+</div>
+</body>
+</html>
+
+

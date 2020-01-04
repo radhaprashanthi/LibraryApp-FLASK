@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+body {
+  background-image: url("https://www.usfca.edu/sites/default/files/styles/above_content_banner_narrow_1604x435/public/library/reflection.png");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GLEESON LIBRARY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <!--<li><a href="{{ url_for('admin_functions') }}" data-toggle="tooltip" title="Back to Admin functions">HOME</a></li>-->
+        <li><a href="{{ url_for('register') }}" data-toggle="tooltip" title="Only for registered users!">REGISTER</a></li>
+      </ul>
+    </div>
+
+</div>
+</nav>
+
+<div class="container">
+
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+
+      {% if session['logged_in'] %}
+      <p>You're logged in already!</p>
+      {% else %}
+    <div class="container">
+        <h3>Admin Login</h3>
+       <p class="text-danger">Please enter correct credentials</p>
+      <form action="/login" method="POST">
+         <input type="hidden" name="csrf_token" value="{{ csrf_token()  }}" />
+        <label>Email<label/>
+        <input type="email" name="email" placeholder="Enter email..."><br/>
+        <label>Password<label/>
+        <input type="password" name="password" placeholder="Enter password"><br/><br/>
+        <input type="submit" value="Login">
+        </form>
+        <div>
+        {% endif %}
+</div>
+</body>
+ </html>
+

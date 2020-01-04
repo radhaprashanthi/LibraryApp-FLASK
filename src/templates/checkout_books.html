@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+div.column2Img {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/93/Gleeson_Library_-_University_of_San_Francisco_-_San_Francisco%2C_CA_-_DSC02652.JPG");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GLEESON LIBRARY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('admin_functions') }}" data-toggle="tooltip" title="Back to Admin functions">HOME</a></li>
+        <!--<li><a href="{{ url_for('register') }}" data-toggle="tooltip" title="Only for registered users!">REGISTER</a></li>-->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+
+
+      {% if session['logged_in'] %}
+      <p>You're logged in already!</p>
+      {% else %}
+    <div class="container">
+        <h3>Checkout Books</h3>
+      <form action="/checkout_books" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token()  }}" />
+        <label>Reader email id<label/>
+        <input type="email" name="email" placeholder="Enter reader email id..."><br/>
+        <!--
+        <label>Book list<label/>
+        {% for book in books %}
+        <li>
+        <input type="checkbox" id="{{book.id}}" name="checkbox" value={{book.id}} {{'checked' if book.active else ''}}>{{ book.title }}
+        </li>
+        {% endfor %}
+        <input type="checkbox" name="title" placeholder="Enter book title...">Book<br/>
+
+
+        <input type="book_id" name="title" placeholder="Enter book title..."><br/>
+
+        <label>Category/Department<label/>
+        <input type="department" name="department" placeholder="Enter book category..."><br/>
+        <label>Copies</label>
+        <input type="total_copies" name="total_copies" placeholder="Enter total number of copies..."><br/><br/>
+
+        -->
+        <!-- Search form -->
+        <form class="form-inline active-cyan-4" action="/checkout_books" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token()  }}" />
+        <input type="search" name ="search_book" placeholder="Search for book" class="form-control form-control-sm mr-3 w-75" aria-label="Search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+        </br>
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Department</th>
+                <th>Copies</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for book in books %}
+            <tr>
+              <td><input type="checkbox" name="book_id" value={{book.book_id}} {{'checked' if book.active else ''}}></td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.department }}</td>
+                <td>{{ book.copies }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <input type="submit" value="Checkout">
+        <div>
+        {% endif %}
+
+    </div>
+</div>
+</body>
+ </html>
+
+

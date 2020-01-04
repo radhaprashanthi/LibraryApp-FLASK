@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin functions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GLEESON LIBRARY</a>
+    </div>
+</div>
+</nav>
+<div class="container">
+
+  <div class="row">
+    
+    <div class="col-sm-5 text-center">
+      
+      <p><a href = "{{ url_for('home_add_books') }}"><h3>Add Book</h3>
+      </a></p>
+        <img src="https://image.flaticon.com/icons/svg/167/167755.svg" class="img-rounded" width="100" height="100">
+
+    </div>
+    <div class="col-sm-5 col text-center">
+      
+      <p> <a href = "{{ url_for('home_add_readers') }}"><h3>Add Reader</h3>
+      </a></p>
+      <img src="https://visualpharm.com/assets/581/Reading-595b40b85ba036ed117da901.svg" class="img-rounded" width="100" height="100">
+
+        
+    </div>
+    <div class="col-sm-5 text-center">
+             
+      <p><a href = "{{ url_for('show_books') }}"><h3>Show Books</h3>
+      </a></p>
+        <img src="https://image.flaticon.com/icons/svg/1361/1361430.svg" class="img-rounded" width="100" height="100">
+      
+    </div>
+
+    <div class="col-sm-5 text-center">
+             
+      <p><a href = "{{ url_for('show_readers') }}"><h3>Show Readers</h3>
+      </a></p>
+        <img src="https://image.flaticon.com/icons/svg/1017/1017961.svg" class="img-rounded" width="100" height="100">
+      
+    </div>
+
+    <div class="col-sm-5 text-center">
+      
+      <p><a href = "{{ url_for('home_checkout_books') }}"><h3>Checkout Books</h3>
+      </a></p>
+        <img src="https://image.flaticon.com/icons/svg/167/167756.svg" class="img-rounded" width="100" height="100">
+
+    </div>
+
+    <div class="col-sm-5 text-center">
+             
+      <p><a href = "{{ url_for('reports') }}"><h3>Reports</h3>
+      </a></p>
+        <img src="https://image.flaticon.com/icons/svg/1055/1055644.svg" class="img-rounded" width="100" height="100">
+      
+    </div>
+
+
+  </div>
+</div>
+
+
+</body>
+</html>
+
