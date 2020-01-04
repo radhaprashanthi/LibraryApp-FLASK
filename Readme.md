@@ -9,9 +9,9 @@ Python, Flask, SQLAlchemy and Postgres.
 
 # Core Features:
 1. User Login/Sign up - Allows user(librarian) to login/sign up to the application.
-2. 2. Add new book - This feature allows to add new books to the library. 
-3. 3. Register new reader - This feature allows to add a new reader to the readers list in order to borrow books.
-4. 4. Search for book availability - Gives information about available number of copies when searched by book id, name or author.
+2. Add new book - This feature allows to add new books to the library. 
+3. Register new reader - This feature allows to add a new reader to the readers list in order to borrow books.
+4. Search for book availability - Gives information about available number of copies when searched by book id, name or author.
 
 # Steps of Execution
 
